@@ -1,0 +1,1 @@
+singularity build cuda_device_query.sif cuda_device_query.def
