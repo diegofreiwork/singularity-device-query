@@ -28,6 +28,16 @@ echo "Job started at $(date)"
 nvidia-smi
 
 # Test singularity container
+echo "" ; "" ; ""
+echo "Running singularity nvidia-smi within singularity image"
+singularity exec --nv cuda_device_query.sif nvidia-smi
+
+echo "" ; "" ; ""
+echo "Checking singularity cuda libraries"
+singularity exec --nv cuda_device_query.sif ls -la /usr/local/cuda/lib64/
+
+echo "" ; "" ; ""
+echo "Running sample program using CUDA from singularity container"
 singularity run --nv cuda_device_query.sif
 
 echo "Job completed at $(date)"
